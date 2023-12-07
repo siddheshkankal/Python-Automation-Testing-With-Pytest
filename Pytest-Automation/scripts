@@ -1,0 +1,301 @@
+to install packages
+open terminal -> pip install pytest
+
+or go to settings -> project ->python interpreter -> install packages -> click on + icon
+
+to list all the installed packages type
+>pip list
+
+to get all installed packages in the requirements.txt file
+>pip freeze >requirements.txt
+
+to create first pytest file
+-> create a new python file with python unit test
+naming convention
+test_<some name>.py
+
+to activate virtual env
+python -m venv [name of the virtual environment]
+venv\Scripts\activate
+
+cd venv
+Scripts\activate
+
+to define function naming convention
+def test_<some name>()
+
+
+
+to run the test cases
+>pytest
+then it will search in current folder
+
+>pytest Pytest_topics
+
+in verbose mode
+>pytest -v Pytest_topics
+
+
+to install packages from requirements.txt file
+pip install -r requirements.txt
+
+rules:
+name all the test files -> test_<somename>.py
+name all the test functions with -> def test_<somename>()
+
+test classes should be names Test<somename>.py
+
+test_<something>.py or <something>_test.py
+
+properly group all tests into test classes/packages
+
+
+to run teh test cases from pycharm to change the test runner
+settings --> tools --> python integreted tools --> default test runner --> pytest (initially it was unittest)
+
+to run the test cases from terminal
+pytest
+pytest -v
+pytest -v Pytest_topics
+
+to run from cmd
+activate venv
+venv\Scripts\activate
+pytest -v Pytest_topics\test_module01.py
+pytest -s Pytest_topics\test_module01.py --> prints the print statement from the functions
+
+
+
+
+
+
+to edit the configuration
+left to the play button icon where we used to run file
+click on dropdown on pytest for test_module01.test_a1 --> select edit configuration
+
+
+pytest --lf -> last failed
+pytest --ff -> first failed
+pytest --nf -> new first
+
+from cmd pytest --cache-show
+to show all detailed cache
+
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -s Pytest_topics\py_assertions\test_module02.py
+
+run specific file
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -v -s Pytest_topics\py_assertions\test_module02.py
+
+run specific class specific method
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -v -s Pytest_topics\py_assertions\test_module02.py::TestMyStuff::test_strs
+
+
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -s Pytest_topics\test_module01.py::test_a1
+
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -v -s Pytest_topics\test_skiptests.py::test_case2
+
+import sys
+help(sys)
+dir(sys)
+
+
+
+
+
+to run test by test name
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -v -k "module"
+
+where ever it is module name in testfile all runs
+
+cachedir: .pytest_cache
+rootdir: D:\mine\Python Automation Testing With Pytest\Pytest-Automation
+configfile: pytest.ini
+collected 24 items / 11 deselected / 13 selected
+
+Pytest_topics/test_module01.py::test_a1 PASSED                                                                                                                       [  7%]
+Pytest_topics/test_module01.py::test_a2 PASSED                                                                                                                       [ 15%]
+Pytest_topics/test_module01.py::test_a3 PASSED                                                                                                                       [ 23%]
+Pytest_topics/py_assertions/test_module01.py::test_a1 PASSED                                                                                                         [ 30%]
+Pytest_topics/py_assertions/test_module01.py::test_a2 PASSED                                                                                                         [ 38%]
+Pytest_topics/py_assertions/test_module01.py::test_a3 PASSED                                                                                                         [ 46%]
+Pytest_topics/py_assertions/test_module01.py::test_a4 PASSED                                                                                                         [ 53%]
+Pytest_topics/py_assertions/test_module01.py::test_a5 PASSED                                                                                                         [ 61%]
+Pytest_topics/py_assertions/test_module02.py::TestMyStuff::test_type PASSED                                                                                          [ 69%]
+Pytest_topics/py_assertions/test_module02.py::TestMyStuff::test_strs PASSED                                                                                          [ 76%]
+Pytest_topics/py_assertions/test_module03.py::test_case1 PASSED                                                                                                      [ 84%]
+Pytest_topics/py_assertions/test_module03.py::test_case2 PASSED                                                                                                      [ 92%]
+Pytest_topics/py_assertions/test_module03.py::test_case3 PASSED                                                                                                      [100%]
+
+==================================================================== 13 passed, 11 deselected in 0.21s ====================================================================
+
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -v -k "module"
+
+
+
+
+
+
+
+
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -v -k "module" --tb=no
+=========================================================================== test session starts ===========================================================================
+platform win32 -- Python 3.11.5, pytest-7.4.3, pluggy-1.3.0 -- D:\mine\Python Automation Testing With Pytest\Pytest-Automation\venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\mine\Python Automation Testing With Pytest\Pytest-Automation
+configfile: pytest.ini
+collected 24 items / 11 deselected / 13 selected
+
+Pytest_topics/test_module01.py::test_a1 PASSED                                                                                                                       [  7%]
+Pytest_topics/test_module01.py::test_a2 PASSED                                                                                                                       [ 15%]
+Pytest_topics/test_module01.py::test_a3 PASSED                                                                                                                       [ 23%]
+Pytest_topics/py_assertions/test_module01.py::test_a1 PASSED                                                                                                         [ 30%]
+Pytest_topics/py_assertions/test_module01.py::test_a2 PASSED                                                                                                         [ 38%]
+Pytest_topics/py_assertions/test_module01.py::test_a3 PASSED                                                                                                         [ 46%]
+Pytest_topics/py_assertions/test_module01.py::test_a4 PASSED                                                                                                         [ 53%]
+Pytest_topics/py_assertions/test_module01.py::test_a5 PASSED                                                                                                         [ 61%]
+Pytest_topics/py_assertions/test_module02.py::TestMyStuff::test_type PASSED                                                                                          [ 69%]
+Pytest_topics/py_assertions/test_module02.py::TestMyStuff::test_strs PASSED                                                                                          [ 76%]
+Pytest_topics/py_assertions/test_module03.py::test_case1 PASSED                                                                                                      [ 84%]
+Pytest_topics/py_assertions/test_module03.py::test_case2 PASSED                                                                                                      [ 92%]
+Pytest_topics/py_assertions/test_module03.py::test_case3 PASSED                                                                                                      [100%]
+
+==================================================================== 13 passed, 11 deselected in 0.19s ======================================
+
+
+
+
+
+
+
+
+
+
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -v -k "test_a"
+=========================================================================== test session starts ===========================================================================
+platform win32 -- Python 3.11.5, pytest-7.4.3, pluggy-1.3.0 -- D:\mine\Python Automation Testing With Pytest\Pytest-Automation\venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\mine\Python Automation Testing With Pytest\Pytest-Automation
+configfile: pytest.ini
+collected 24 items / 11 deselected / 13 selected
+
+Pytest_topics/test_markers.py::test_a1 PASSED                                                                                                                        [  7%]
+Pytest_topics/test_markers.py::test_a2 PASSED                                                                                                                        [ 15%]
+Pytest_topics/test_markers.py::test_a3 PASSED                                                                                                                        [ 23%]
+Pytest_topics/test_module01.py::test_a1 PASSED                                                                                                                       [ 30%]
+Pytest_topics/test_module01.py::test_a2 PASSED                                                                                                                       [ 38%]
+Pytest_topics/test_module01.py::test_a3 PASSED                                                                                                                       [ 46%]
+Pytest_topics/test_xfailtests.py::test_a4 XFAIL (known issue)                                                                                                        [ 53%]
+Pytest_topics/test_xfailtests.py::test_a5 XFAIL                                                                                                                      [ 61%]
+Pytest_topics/py_assertions/test_module01.py::test_a1 PASSED                                                                                                         [ 69%]
+Pytest_topics/py_assertions/test_module01.py::test_a2 PASSED                                                                                                         [ 76%]
+Pytest_topics/py_assertions/test_module01.py::test_a3 PASSED                                                                                                         [ 84%]
+Pytest_topics/py_assertions/test_module01.py::test_a4 PASSED                                                                                                         [ 92%]
+Pytest_topics/py_assertions/test_module01.py::test_a5 PASSED                                                                                                         [100%]
+
+============================================================== 11 passed, 11 deselected, 2 xfailed in 0.28s ===============================================================
+
+
+
+
+
+
+
+
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -v -k "test_a or test_case"
+=========================================================================== test session starts ===========================================================================
+platform win32 -- Python 3.11.5, pytest-7.4.3, pluggy-1.3.0 -- D:\mine\Python Automation Testing With Pytest\Pytest-Automation\venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\mine\Python Automation Testing With Pytest\Pytest-Automation
+configfile: pytest.ini
+collected 24 items / 2 deselected / 22 selected
+
+Pytest_topics/test_markers.py::test_a1 PASSED                                                                                                                        [  4%]
+Pytest_topics/test_markers.py::test_a2 PASSED                                                                                                                        [  9%]
+Pytest_topics/test_markers.py::test_a3 PASSED                                                                                                                        [ 13%]
+Pytest_topics/test_module01.py::test_a1 PASSED                                                                                                                       [ 18%]
+Pytest_topics/test_module01.py::test_a2 PASSED                                                                                                                       [ 22%]
+Pytest_topics/test_module01.py::test_a3 PASSED                                                                                                                       [ 27%]
+Pytest_topics/test_skiptests.py::test_case1 SKIPPED (Skipping for no reason specified)                                                                               [ 31%]
+Pytest_topics/test_skiptests.py::test_case2 PASSED                                                                                                                   [ 36%]
+Pytest_topics/test_skiptests.py::test_case3 SKIPPED (pytest version less)                                                                                            [ 40%]
+Pytest_topics/test_xfailtests.py::test_case1 SKIPPED (Skipping for no reason specified)                                                                              [ 45%]
+Pytest_topics/test_xfailtests.py::test_case2 PASSED                                                                                                                  [ 50%]
+Pytest_topics/test_xfailtests.py::test_case3 SKIPPED (pytest version less)                                                                                           [ 54%]
+Pytest_topics/test_xfailtests.py::test_a4 XFAIL (known issue)                                                                                                        [ 59%]
+Pytest_topics/test_xfailtests.py::test_a5 XFAIL                                                                                                                      [ 63%]
+Pytest_topics/py_assertions/test_module01.py::test_a1 PASSED                                                                                                         [ 68%]
+Pytest_topics/py_assertions/test_module01.py::test_a2 PASSED                                                                                                         [ 72%]
+Pytest_topics/py_assertions/test_module01.py::test_a3 PASSED                                                                                                         [ 77%]
+Pytest_topics/py_assertions/test_module01.py::test_a4 PASSED                                                                                                         [ 81%]
+Pytest_topics/py_assertions/test_module01.py::test_a5 PASSED                                                                                                         [ 86%]
+Pytest_topics/py_assertions/test_module03.py::test_case1 PASSED                                                                                                      [ 90%]
+Pytest_topics/py_assertions/test_module03.py::test_case2 PASSED                                                                                                      [ 95%]
+Pytest_topics/py_assertions/test_module03.py::test_case3 PASSED                                                                                                      [100%]
+
+========================================================= 16 passed, 4 skipped, 2 deselected, 2 xfailed in 0.38s ==========================================================
+
+
+
+
+
+
+
+
+
+
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -v -k "module and case"
+=========================================================================== test session starts ===========================================================================
+platform win32 -- Python 3.11.5, pytest-7.4.3, pluggy-1.3.0 -- D:\mine\Python Automation Testing With Pytest\Pytest-Automation\venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\mine\Python Automation Testing With Pytest\Pytest-Automation
+configfile: pytest.ini
+collected 24 items / 21 deselected / 3 selected
+
+Pytest_topics/py_assertions/test_module03.py::test_case1 PASSED                                                                                                      [ 33%]
+Pytest_topics/py_assertions/test_module03.py::test_case2 PASSED                                                                                                      [ 66%]
+Pytest_topics/py_assertions/test_module03.py::test_case3 PASSED                                                                                                      [100%]
+
+==================================================================== 3 passed, 21 deselected in 0.09s =====================================================================
+
+
+
+
+
+
+to get all options
+pytest --help
+or pytest -h
+
+exited on first failed test -x
+(venv) D:\mine\Python Automation Testing With Pytest\Pytest-Automation>pytest -v -k "test" -x
+
+--max-fail = 2
+-k --> to run the tests based on given string
+-x --> exit after first failed
+-q --> decrease verbosity
+--collect-only, --co --> only collect tests dont run them
+--ff, --failed-first -->run all the tests but run the last failures first
+
+
+geting setup ready for the actual tests
+fixtures
+functions that are run by pytest before (and sometimes after)
+the actual test functions
+
+can put fixtures in individual test files,or in conftest.py for
+making available in multiple test files
+
+
+conftest.py shares fixtures across multiple tests
+can have single conftest.py in centralized directory for all the tests to access the
+fixtures
+also can have other conftest.py files in subdirectories.
+it should not be imported by test files
+
+
+
+
+
+
+
+
